@@ -290,9 +290,9 @@ WEAVE_ERROR GenericThreadStackManagerImpl_OpenThread<ImplClass>::_GetThreadProvi
             memcpy(netInfo.ThreadNetworkKey, activeDataset.mMasterKey.m8, sizeof(netInfo.ThreadNetworkKey));
             netInfo.FieldPresent.ThreadNetworkKey = true;
         }
-        if (activeDataset.mComponents.mIsPSKcPresent)
+        if (activeDataset.mComponents.mIsPskcPresent)
         {
-            memcpy(netInfo.ThreadPSKc, activeDataset.mPSKc.m8, sizeof(netInfo.ThreadPSKc));
+            memcpy(netInfo.ThreadPSKc, activeDataset.mPskc.m8, sizeof(netInfo.ThreadPSKc));
             netInfo.FieldPresent.ThreadPSKc = true;
         }
     }
@@ -342,8 +342,8 @@ WEAVE_ERROR GenericThreadStackManagerImpl_OpenThread<ImplClass>::_SetThreadProvi
     }
     if (netInfo.FieldPresent.ThreadPSKc)
     {
-        memcpy(newDataset.mPSKc.m8, netInfo.ThreadPSKc, sizeof(newDataset.mPSKc.m8));
-        newDataset.mComponents.mIsPSKcPresent = true;
+        memcpy(newDataset.mPskc.m8, netInfo.ThreadPSKc, sizeof(newDataset.mPskc.m8));
+        newDataset.mComponents.mIsPskcPresent = true;
     }
     if (netInfo.ThreadPANId != kThreadPANId_NotSpecified)
     {
